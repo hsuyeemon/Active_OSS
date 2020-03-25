@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="{% static 'assets/images/favicon.png' %}" type="image/x-icon" />
+
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Animate CSS -->
+    <link href="{% static 'assets/vendor/animate/animate.css' %}" rel="stylesheet">
+    <!-- Icon CSS-->
+	<link rel="stylesheet" href="{% static 'assets/vendor/font-awesome/css/font-awesome.min.css' %}">
+    <!-- Camera Slider -->
+    <link rel="stylesheet" href="{% static 'assets/vendor/camera-slider/camera.css' %}">
+    <!-- Owlcarousel CSS-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/vendor/owl_carousel/owl.carousel.css' %}" media="all">
+
+    <!--Theme Styles CSS-->
+	<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}" media="all" />
+
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+
+
+    <script src="{% static "js/html5shiv.min.js" %}"></script>
+
+    <script src="{% static "js/respond.min.js" %}"></script>
+    <![endif]-->
+    <style>
+label {
+    color: #000;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 0.2em;
+}
+
+.input {
+    border-radius:6px;
+    margin-top: 10px;
+    margin-bottom: 1em;
+    padding: 13px 12px;
+    border: 1.5px solid #fff;
+    background-color:#ccf2ff;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width:45%;
+}
+
+select {
+    margin-bottom: 0.6em;
+    padding-top:6px;
+    align-items: center;
+}
+.input span {
+    font-size: 15px;
+    color: #464646;
+    margin-right: 10px;
+}
+
+
+/* Extra styles for the cancel button */
+.cancelbtn {
+  width: auto;
+  padding: 10px 18px;
+  background-color: #f44336;
+}
+
+.container {
+  padding: 16px;
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 99; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: #003333; /* Fallback color */
+  background-color: rgba(0,0,0,0.6); /* Black w/ opacity */
+  padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width:40%;
+  height: 376px;
+  border-radius:6px;
+  padding:16px 16px 5px;
+}
+.submit {
+    margin: 1.6em inherit;
+    margin-right: 20px;
+    float:left;
+    background: #008080;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    display: block;
+    color: #fff;
+    border-radius:5px;
+    padding: 13px 6px;
+    font-size: 16px;
+}
+
+.submit1 {
+    margin: 1.4em 2em;
+    
+    float:right;
+    background: #008080;
+    border: none;
+    cursor: pointer;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+    color: #fff;
+    border-radius:5px;
+    padding: 13px 10px;
+    font-size: 16px;
+}
+
+.submit:hover {
+    background:#00394d;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    transition: 0.5s all;
+}
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+}
+
+#login{
+    margin-left: 180px;
+    margin-top:-10px;
+    color:#002633;
+}
+</style>
+
+</head>
+<body>
+    <div id="id01" class="modal">
+  
+  <form class="modal-content animate">
+    <div class="container">
+    <h2 id="login">User Login</h2>
+      <label for="uname"><b>Username</b></label>
+      <input class="input" type="text" placeholder="Username" name="username" required/>
+
+      <label for="psw"><b>Password</b></label>
+      <input class="input" type="password" placeholder="Enter Password" name="psw" required>
+      
+      <button type="button" style="width:21%;" onclick="document.getElementById('id01').style.display='none'" class="submit">Cancel</button>
+      <button type="submit" class="submit" style="width:21%;">Login</button>
+    </div>
+  </form>
+</div>
+    <!-- Preloader -->
+    <div class="preloader"></div>
+
+
+
+	<!-- Header_Area -->
+    <nav class="navbar navbar-default header_aera" id="main_navbar">
+        <div class="container">
+            <!-- searchForm -->
+            <div class="searchForm">
+                <form action="#" class="row m0">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                        <input type="search" name="search" class="form-control" placeholder="Type & Hit Enter">
+                        <span class="input-group-addon form_hide"><i class="fa fa-times"></i></span>
+                    </div>
+                </form>
+            </div><!-- End searchForm -->
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="col-md-2 p0">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#min_navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="index.html"><img src="{% static 'assets/images/Logo-1.jpg' %}" alt="" "></a>
+                </div>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="col-md-10 p0">
+                <div class="collapse navbar-collapse" id="min_navbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home</a>
+                            <!--ul class="dropdown-menu">
+                                <li><a href="index.html">Home</a></li>
+                                <li><a href="index-2.html">Home 2</a></li>
+                            </ul-->
+                        </li>
+                        <li class="dropdown submenu">
+                            <a href="#aboutus" class="dropdown-toggle" data-toggle="dropdown">About Us</a>
+                            <!--ul class="dropdown-menu other_dropdwn">
+                                <li><a href="about.html">About Us</a></li>
+                                <li><a href="about-2.html">About Us-2</a></li>
+                            </ul-->
+                        </li>
+                        <li class="dropdown submenu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services</a>
+                            <ul class="dropdown-menu other_dropdwn">
+                                <li><a href="">add person main data</a></li>
+                                <li><a href="">update person information</a></li>
+                                <li><a href="">delete person information</a></li>
+                                <li><a href="">Data Dash Board</a></li>
+                                <li><a href="">show all data</a></li>
+                                <li><a href="">Request Approval Letter</a></li>
+                                <li><a href="">Register crime record</a></li>
+                                <li><a href="">Request Crime Record</a></li> </ul>
+                        </li>
+                        
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="/login/">Login</a></li>
+
+                        <!--button onclick="document.getElementById('id01').style.display='block'" style="width:auto;" class="submit1">Login</button-->
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div>
+        </div><!-- /.container -->
+    </nav>
+	<!-- End Header_Area -->
+
+    <!-- Slider area -->
+    <section class="slider_area row m0">
+        <div class="slider_inner">
+            <div data-thumb="{% static 'assets/images/oss4.jpg' %}" data-src="{% static 'assets/images/oss4.jpg' %}">
+                <div class="camera_caption">
+                   <div class="container">
+                        <h5 class=" wow fadeInUp animated">Welcome to OSS</h5>
+                        <h3 class=" wow fadeInUp animated" data-wow-delay="0.5s"></h3>
+                        <p class=" wow fadeInUp animated" data-wow-delay="0.5s" font-size:18px>Active OSS ဆိုသည်မှာ ပြည်ထဲရေးဝန်ကြီးဌာန နှင့် အထွေထွေအုပ်ချုပ်ရေးရုံးများမှ ပြည်သူများအတွက် လိုအပ်သော အစိုးရနှင့်ဆိုင်သော ဝန်ဆောင်မှုများပေးနိုင်ရန်အတွက် ရည်ရွယ်၍ One Stop Shop (OSS)များကို information system ဖြင့် အဆင့်မြှင့်ကာဆောင်ရွက်ထားသော system တစ်ခုဖြစ်ပါသည်။</p>
+                        <a class=" wow fadeInUp animated" data-wow-delay="1s" href="#">Read More</a>
+                   </div>
+                </div>
+              </div>
+            <!--div data-thumb="{% static 'assets/images/egov.jpg' %}" data-src="{% static 'assets/images/egov.jpg' %}">
+                <div class="camera_caption">
+                   <div class="container">
+                        <h5 class=" wow fadeInUp animated">Welcome to OSS</h5>
+                        <h3 class=" wow fadeInUp animated" data-wow-delay="0.5s"></h3>
+                        <p class=" wow fadeInUp animated" data-wow-delay="0.8s" font-size:18px>Active OSS ဆိုသည်မှာ ပြည်ထဲရေးဝန်ကြီးဌာန နှင့် အထွေထွေအုပ်ချုပ်ရေးရုံးများမှ ပြည်သူများအတွက် လိုအပ်သော အစိုးရနှင့်ဆိုင်သော ဝန်ဆောင်မှုများပေးနိုင်ရန်အတွက် ရည်ရွယ်၍ One Stop Shop (OSS)များကို information system ဖြင့် အဆင့်မြှင့်ကာဆောင်ရွက်ထားသော system တစ်ခုဖြစ်ပါသည်။</p>
+                        <a class=" wow fadeInUp animated" data-wow-delay="1s" href="#">Read More</a>
+                   </div>
+                </div>
+            </div-->
+        </div>
+    </section>
+    <!-- End Slider area -->
+
+    <!-- Professional Builde -->
+    <section  class="professional_builder row">
+        <div id="aboutus" class="container">
+           <div class="row builder_all">
+                <div  class="col-md-3 col-sm-6 builder">
+                    <i class="fa fa-home" aria-hidden="true"></i>
+                    <h4>မြန်ဆန်သောဝန်ဆောင်မှု</h4>
+                    <p>Customer များ၏ အခြေခံလိုအပ်သော စာရွက်စာတမ်းများ(ထောက်ခံစာများ)အား အဆင်ပြေချောမွေ့စေရန်နှင့် အလွယ်တကူ မြန်ဆန်စွာ ဝန်ဆောင်မှုပေးနိုင်ရန်  အတွက်  ပြုလုပ်ထားပါသည်။ </p>
+                </div>
+                <div class="col-md-3 col-sm-6 builder">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                    <h4>အချိန်ကုန်သက်သာစေခြင်း</h4>
+                    <p>ပြည်သူများအတွက် အချိန်ကုန်သက်သာပြီး ဌာနဆိုင်ရာများနှင့် လွယ်ကူစွာ ဆောင်ရွက်နိုင်စေရန် သက်ဆိုင်ရာဌာနများမှ တာဝန်ယူဆောင်ရွက်ပေးရမည့် လုပ်ငန်းများကို တစ်နေရာတည်းတွင် စုပေါင်း၍  ပြည်သူ့ဝန်ဆောင်မှုလုပ်ငန်းများကို ဆောင်ရွက်ပေးပါသည်။ </p>
+                </div>
+                <div class="col-md-3 col-sm-6 builder">
+                    <i class="fa fa-dollar" aria-hidden="true"></i>
+                    <h4>ငွေကုန်သက်သာစေခြင်း</h4>
+                    <p>ပြည်သူများ၏ လိုအပ်သော စာရွက်စာတမ်းများအား ရိုးရှင်းလွယ်ကူစွာကြိုးစား ဆောင်ရွက်ပေးမှုများကြောင့် ပြည်သူများအနေဖြင့် မိမိတို့ရယူလိုသော ဝန်ဆောင်မှုများကို ဌာနဆိုင်ရာများတွင် အချိန်ကုန်၊ ငွေကုန်ခံ၍ သွားရောက်ဆောင်ရွက်ရန် မလိုတော့ဘဲ  OSS တခုတည်းရှိရုံဖြင့် အချိန်ကုန် ငွေကုန်သက်သာစွာဆောင်ရွက်နိုင်ပါ</p>
+                </div>
+                <div class="col-md-3 col-sm-6 builder">
+                    <i class="fa fa-thumbs-up" aria-hidden="true"></i>
+                    <h4>အကောင်းဆုံးဝန်ဆောင်မှု</h4>
+                    <p>ပြည်သူများ၏ အခြေခံလိုအပ်ချက်များကို ဖြည့်ဆည်းဆောင်ရွက်ပေးလျက်ရှိပါသည်။ </p>
+                </div>
+           </div>
+        </div>
+    </section>
+    <!-- End Professional Builde -->
+
+<!-- What ew offer Area -->
+    <section class="what_we_area row">
+        <div class="container">
+            <div class="tittle wow fadeInUp">
+                <h2>WHAT WE OFFER</h2>
+
+            </div>
+
+
+            <div class="row construction_iner">
+
+                <div class="col-md-4 col-sm-6 construction">
+                   <div class="cns-img">
+                        <img src="{% static 'assets/images/3-Ways-You-Can-Use-Census-Data-538x218.jpg' %}" alt="">
+                   </div>
+                   <div class="cns-content">
+                        <i class="fa fa-home" aria-hidden="true"></i>
+                                    <a href="/add_a_person/">သန်းခေါင်စာရင်း</a>
+                        <p>(က)တိကျမှန်ကန်သော လူဦးရေ စာရင်းရရှိစေရန် လူဦးရေသန်ခေါင်းစာရင်းများ အသစ်ပြင်ပေးခြင်း<br><br><br><br><br></p>
+                   </div>
+                </div>
+
+                <div class="col-md-4 col-sm-6 construction">
+                   <div class="cns-img">
+                        <img src="{% static 'assets/images/imageedit_1_4109955441.jpg' %}" alt="">
+                   </div>
+                   <div class="cns-content">
+                        <i class="fa fa-keyboard-o" aria-hidden="true"></i>
+                        <a href="#">အချက်အလက်များ</a>
+                                                <p>(ခ)နိုင်ငံသားများ၏ အချက်အလက်များ ပြင်ဆင်ပေးခြင်း ပြန်လည်ထုတ်ကြည့်နိုင်ခြင်း<br><br><br><br><br></p>
+                   </div>
+                </div>
+
+
+                <div class="col-md-4 col-sm-6 construction">
+
+                   <div class="cns-img">
+                        <img src="{% static 'assets/images/recommendation.jpeg' %}" alt="">
+                   </div>
+                   <div class="cns-content">
+                        <i class="fa fa-gavel" aria-hidden="true"></i>
+                          <a href="#">ထောက်ခံစာများ</a>
+                                                <p>(ဂ)တက္ကသိုလ် ဝင်ခွင့်လျှောက်ထားခြင်း၊ အလုပ်လျှောက်ထားခြင်း စသည်များအတွက် လိုအပ်သော ဌာနဆိုင်ရာများမှ ထောက်ခံစာများထုတ်ပေးခြင်း <br><br><br></p>
+                   </div>
+
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!-- End What ew offer Area -->
+
+
+
+
+    <!-- Footer Area -->
+    <footer class="footer_area">
+        <div class="container">
+            <div class="footer_row row">
+                <div id="contact"class="col-md-3 col-sm-6 footer_about">
+                    <h2 >ABOUT OUR COMPANY</h2>
+                    <img src="{% static 'assets/images/Logo-1.jpg' %}" alt="">
+                    <p>Active OSS ဆိုသည်မှာ ပြည်ထဲရေးဝန်ကြီးဌာန နှင့် အထွေထွေအုပ်ချုပ်ရေးရုံးများမှ ပြည်သူများအတွက် လိုအပ်သော အစိုးရနှင့်ဆိုင်သော ဝန်ဆောင်မှုများပေးနိုင်ရန်အတွက် ရည်ရွယ်၍ One Stop Shop (OSS)များကို information system ဖြင့် အဆင့်မြှင့်ကာဆောင်ရွက်ထားသော system တစ်ခုဖြစ်ပါသည်။</p>
+                    <ul class="socail_icon">
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer_about quick">
+                    <h2>Quick links</h2>
+                    <ul class="quick_link">
+                        <li><a href="www.mol.gov.mm"><i class="fa fa-chevron-right"></i>Ministry of Labour, Immigration and Population</a></li>
+                        <li><a href="www.president-office.gov.mm"><i class="fa fa-chevron-right"></i>President Office</a></li>
+                        <li><a href="www.pyidaungsu.hluttaw.mm"><i class="fa fa-chevron-right"></i>Pyidaungsu Hluttaw</a></li>
+                        <li><a href="https://evisa.moip.gov.mm/"><i class="fa fa-chevron-right"></i>Myanmar eVisa</a></li>
+                        <li><a href="www.moi.gov.mm"><i class="fa fa-chevron-right"></i>Ministry of Information</a></li>
+                        <li><a href="www.motc.gov.mm"><i class="fa fa-chevron-right"></i>Ministry of Transport and Communications</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6 footer_about">
+                    <h2>Twitter Feed</h2>
+                    <a href="#" class="twitter">@colorlib: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</a>
+                    <a href="#" class="twitter">@colorlib: Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</a>
+                </div>
+                <div class="col-md-3 col-sm-6 footer_about">
+                    <h2>CONTACT US</h2>
+                    <address>
+                        <p>Have questions, comments or just want to say hello:</p>
+                        <ul class="my_address">
+                            <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i>info@thethemspro.com</a></li>
+                            <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i>+880 123 456 789</a></li>
+                            <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i><span>Sector # 10, Road # 05, Plot # 31, Uttara, Dhaka 1230 </span></a></li>
+                        </ul>
+                    </address>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer Area -->
+    <script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+
+    <script src="{% static 'assets/js/jquery-1.12.0.min.js' %}"></script>
+
+    <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/animate/wow.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/camera-slider/jquery.easing.1.3.js' %}"></script>
+    <script src="{% static 'assets/vendor/camera-slider/camera.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/isotope/imagesloaded.pkgd.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/isotope/isotope.pkgd.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/Counter-Up/jquery.counterup.min.js' %}"></script>
+    <script src="{% static 'assets/vendor/Counter-Up/waypoints.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/owl_carousel/owl.carousel.min.js' %}"></script>
+
+    <script src="{% static 'assets/vendor/stellar/jquery.stellar.js' %}"></script>
+
+    <script src="{% static 'assets/js/theme.js' %}"></script>
+</body>
+</html>
